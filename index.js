@@ -149,21 +149,22 @@ function generateQuestElement(item, itemIndex){
     <h2>Question ${itemIndex+1} :</h2>
     <section class="question-content">
       <form class="question-form">
-        <label>${item[itemIndex].Question}</label><br>
         <fieldset>
-          <legend>
-            <label class="choice"><input type="radio" name="answer" value=0>${item[itemIndex].Answer[0]}</label>
-            <label class="choice"><input type="radio" name="answer" value=1>${item[itemIndex].Answer[1]}</label>
-            <label class="choice"><input type="radio" name="answer" value=2>${item[itemIndex].Answer[2]}</label>
-            <label class="choice"><input type="radio" name="answer" value=3>${item[itemIndex].Answer[3]}</label>
-            <button class="Submit-button" type="button">Submit Answer</button>
-          </legend>
-        <fieldset>
+          <legend>${item[itemIndex].Question}</legend>
+            <div role="radiogroup">
+              <label  class="choice"><input type="radio" name="answer" value=0>${item[itemIndex].Answer[0]}</label>
+              <label  class="choice"><input type="radio" name="answer" value=1>${item[itemIndex].Answer[1]}</label>
+              <label  class="choice"><input type="radio" name="answer" value=2>${item[itemIndex].Answer[2]}</label>
+              <label  class="choice"><input type="radio" name="answer" value=3>${item[itemIndex].Answer[3]}</label>
+            </div>
+            <button role="button" class="Submit-button" type="button">Submit Answer</button>
+        </fieldset>
       </form>
     </section>
   `;
 }
-
+  // <input type="radio" name="answer" class="choice" value="0" checked>
+  //           <label for="0">${item[itemIndex].Answer[0]}</label>
 function checkAnswer(userAnswer){
   if ( questData[currentQuestionIndex].Answer[userAnswer] === questData[currentQuestionIndex].rightAnswer){
     countCorrectAnswered++;
